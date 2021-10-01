@@ -1,0 +1,16 @@
+---
+ - name: This playbook is an use-case of list of array
+   hosts: webservers
+   vars:
+           mydir: ["web-app1","web-app2"]
+
+   tasks:
+           - name: To create two dirs
+             file:
+                     path: "/opt/{{ item }}"
+                     state: directory
+                     mode: 0644
+                     owner: root
+                     group: root
+             loop: "{{ mydir }}"       
+

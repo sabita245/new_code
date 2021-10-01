@@ -1,0 +1,12 @@
+---
+ - name: This playbook is an usecase of forloop
+   hosts: webservers
+   vars:
+           myfile: ["/opt/abc.txt","/opt/xyz.txt"]
+   tasks:
+           - name: To teast the files if they are present
+             file:
+                     path: "{{ item }}"
+                     state: file
+                     mode: 0644
+             loop: "{{ myfile }}"

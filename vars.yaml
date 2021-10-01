@@ -1,0 +1,17 @@
+---
+ - name: This playbook is use-case of variable
+   hosts: webservers
+   vars:
+           mypackage: vim
+           myfile: helloworld.yaml
+
+   tasks:
+           - name: To install a package named "{{ mypackage }}"
+             apt:
+                     name: "{{ mypackage }}"
+                     state: present
+           - name: To copy a file named "{{ myfile }}"
+             copy:
+                     src: "/opt/ansible/{{ myfile }}"
+                     dest: "/opt/{{ myfile }}"
+                     mode: 0644           

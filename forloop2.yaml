@@ -1,0 +1,13 @@
+---
+ - name: This playbook will install two packages
+   hosts: webservers
+
+   tasks:
+           - name: To install two packages
+             package:
+                     name: "{{ item }}"
+                     state: present
+
+             loop:
+                     - wget
+                     - unzip       

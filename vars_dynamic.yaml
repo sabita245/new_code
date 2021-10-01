@@ -1,0 +1,14 @@
+---
+ - name: This is an use-case of dynamically change value of variable
+   hosts: webservers
+
+   tasks:
+           - name: To ensure abc.shh script runs every noght at 1.15AM
+             cron:
+                     name: "log_rotation"
+                     hour: "01"
+                     minute: "15"
+                     job: "/opt/ansible/{{ script }}"
+                     state: present
+
+

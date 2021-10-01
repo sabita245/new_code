@@ -1,0 +1,11 @@
+---
+ - name: This playbook is use-case of variable files
+   hosts: webservers
+   vars_files:
+           - myvariables.yaml
+
+   tasks:
+           - name: To install a package named "{{ mysoftware }}"
+             apt:
+                     name: "{{ mysoftware }}"
+                     state: present          
